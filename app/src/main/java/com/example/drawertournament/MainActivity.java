@@ -24,6 +24,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,26 +34,49 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Floating Action Button
+        final FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view,"Assign a Task to this Button",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+            }
+        });
+
         //ToolBar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //ViewPager and Fragment adapters
         ViewPager viewPager = findViewById(R.id.view_pager);
-        SimpleFragmentPagerAdapter viewPagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+        SimpleFragmentPagerAdapter viewPagerAdapter = new SimpleFragmentPagerAdapter(this,getSupportFragmentManager());
         TabLayout tabLayout = findViewById(R.id.tabs);
         viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
 
-        //Floating Action Button
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //Set onPageListener to allow the FAB to show when only on Now Fragment
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    fab.show();
+                } else {
+                    fab.hide();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
+
+        tabLayout.setupWithViewPager(viewPager);
+
+
 
         //Menu Bar
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_table_grid"
+        android:drawablePadding="32dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textStyle="bold"
+        tools:text="NGL Season 5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/text"
+        android:layout_alignBottom="@id/text"
+        android:layout_alignTop="@id/text"
+        android:src="@drawable/ic_chevron_right_black_24dp" />
+</RelativeLayout>

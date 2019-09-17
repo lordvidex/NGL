@@ -4,12 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CurrentTournamentFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <ListView
+        android:id="@+id/listview_current_tournaments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/empty_view_pic"
+            android:contentDescription="@string/no_tournament" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#7A7878"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/empty_view_lonely"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_view_subtitle"
+            android:textColor="#B2AFAF"/>
+    </LinearLayout>
 </FrameLayout>

@@ -18,4 +18,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="done">Done</string>
+    <string name="now">Now</string>
+    <string name="empty_view_lonely">It\'s a bit lonely here</string>
+    <string name="empty_view_subtitle">Get started by adding a new tournament</string>
+    <string name="no_tournament">No Tournaments available..</string>
+    <string name="no_completed_tournaments">There are no completed Tournaments</string>
 </resources>
